@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	function check(){
+		var username = document.getElementById('username').value;
+		var pwd = document.getElementById('pwd').value;
+		var pwd2 = document.getElementById('pwd2').value;
+		var errorTip = document.getElementById("errorTip");
+		if(!username){
+			errorTip.innerText ="用户名不能为空";
+			return false;
+		}
+		if(!pwd || !pwd2){
+
+			errorTip.innerText ="密码不能为空";
+			return false;
+		};
+		if(pwd!=pwd2){
+			errorTip.innerText ="两次密码输入不相同";
+			return false;
+		}
+	}
+</script>
+<body>
+	<h1>欢迎注册</h1>
+	<form action="/regPost" method="post" enctype="multipart/form-data" onSubmit="return check();">
+		户名：<input type="text" name="username" id="username"/>
+		密码：<input type="password" name="pwd" id="pwd"/>
+		再次输入密码：<input type="password" name="pwd2" id="pwd2"/>
+		<input type="submit" value="提交">
+		<div id="errorTip"></div>
+	</form>
+	
+</body>
+</html>
